@@ -1,0 +1,9 @@
+@model CommandeAppWeb.Models.Produit
+
+<h1>Ajouter un produit</h1>
+<form method="post">
+    <label>Nom : <input asp-for="Nom" /></label><br />
+    <label>Prix : <input asp-for="Prix" /></label><br />
+    <label>Stock : <input asp-for="Stock" /></label><br />
+    <button type="submit">Créer</button>
+</form>

@@ -1,0 +1,9 @@
+@model List<CommandeAppWeb.Models.Produit>
+
+    <h1>Nos Produits</h1>
+    <ul>
+        @foreach (var p in Model)
+        {
+            <li><a href="/Produits/Details/@p.Id">@p.Nom</a>- @p.Prix.ToString("C") (@p.Stock en stock)</li>
+        }
+    </ul>

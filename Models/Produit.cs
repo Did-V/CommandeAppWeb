@@ -1,4 +1,4 @@
-namespace CommandeApp.Models;//Pourquoi namespace CommandeApp.Models ?
+namespace CommandeAppWeb.Models;//Pourquoi namespace CommandeApp.Models ?
 //Réponse : Le namespace CommandeApp.Models est utilisé pour organiser les classes liées aux modèles de l'application CommandeApp. 
 // Cela permet de regrouper les classes Produit et Commande sous un même espace de noms, facilitant ainsi la gestion et l'importation des classes dans d'autres parties de l'application.
 
