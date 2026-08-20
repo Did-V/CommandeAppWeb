@@ -5,9 +5,11 @@ namespace CommandeAppWeb.Models;//Pourquoi namespace CommandeApp.Models ?
 public class Produit
 {
     public int Id { get; set; } //clé primaire pour l'identification unique de chaque produit, utile si l'on souhaite stocker les produits dans une base de données.
-    public string Nom { get; set; }
+    public string Nom { get; set; } = null!;
     public decimal Prix { get; set; }
     public int Stock { get; set; }
+
+    public Produit(){}  //Conxtructeur pour ASP.Net Core
 
     public Produit(string nom, decimal prix, int stock)
     {

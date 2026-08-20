@@ -1,0 +1,9 @@
+@model int
+
+<h2>Valeur actuelle : @Model</h2>
+
+<form method="post">
+    <button type="submit" asp-action="Incrementer">+ Incrémenter</button>
+    <button type="submit" asp-action="Decrementer">+ Décrémenter</button>
+    <button type="submit" asp-action="RemettreAZero">+ Remettre à zéro</button>
+</form>

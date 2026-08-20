@@ -4,8 +4,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
 builder.Services.AddDbContext<AppDbContext>();
+
+//Ajouter le service de session
+builder.Services.AddDistributedMemoryCache();   //Stockage en mémoire
+builder.Services.AddSession();
 
 var app = builder.Build();
 
@@ -19,6 +22,9 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
+
+//Activer le middleware de session (AVANT UseAuthorization)
+app.UseSession();
 
 app.UseAuthorization();
 
