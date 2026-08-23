@@ -1,8 +1,9 @@
 @model CommandeAppWeb.Models.Produit
 
-<h2>Ajouter un produit</h2>
+<h2>Modifier le produit</h2>
+<form method="post" asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
 
-<form method="post" asp-action="Create">
     <div class="mb-3">
         <label asp-for="Nom" class="form-label"></label>
         <input asp-for="Nom" class="form-control" />
@@ -18,9 +19,8 @@
     <div class="mb-3">
         <label asp-for="Stock" class="form-label"></label>
         <input asp-for="Stock" class="form-control" />
-        <span asp-validation-for="Stock"></span>
     </div>
-
+    
     <button type="submit" class="btn btn-success">Enregistrer</button>
-    <a asp-action="Index" class="btn btn-secondary">Annuler</a>
+    <a asp-action="Index" class="btn btn-secondary">Retour</a>
 </form>

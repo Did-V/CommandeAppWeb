@@ -1,12 +1,17 @@
 @model CommandeAppWeb.Models.Produit
 
-<h1>@Model.Nom</h1>
-<p>Prix : @Model.Prix.ToString("C")</p>
-<p>Stock : @Model.Stock</p>
-<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Modifier</a>
+<h2>Détails produit</h2>
 
-<form method="post" asp-action="Delete" asp-route-id="@Model.Id" style="display:inline">
-    <button type="submit" class="btn btn-danger" onclick="return confirm('Supprimer ce produit ?');">Supprimer</button>
-</form>
-
-<a asp-action="Index" class="btn btn-secondary">Retour</a>
+<div class="card" style="width: 24rem;">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Nom</h5>
+        <p class="card-text">Prix : @Model.Prix €</p>
+        <p class="card-text">Stock : @Model.Stock</p>
+        
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Moddifier</a>
+        <form method="post" asp-action="Delete" asp-route-id="@Model.Id" style="display:inline">
+            <button type="submit" class="btn btn-danger" onclick="return confirm('Supprimer ce produit ?');">Supprimer</button>
+        </form>
+        <a asp-action="Index" class="btn btn-secondary">Retour</a>
+    </div>
+</div>

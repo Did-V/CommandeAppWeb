@@ -1,9 +1,39 @@
 @model List<CommandeAppWeb.Models.Produit>
 
-    <h1>Nos Produits</h1>
+    @* <h1>Nos Produits</h1>
     <ul>
         @foreach (var p in Model)
         {
             <li><a href="/Produits/Details/@p.Id">@p.Nom</a>- @p.Prix.ToString("C") (@p.Stock en stock)</li>
         }
     </ul>
+    <a asp-action="Create" class="btn btn-primary">Ajouter un produit</a> *@
+
+    <h2>Liste des produits</h2>
+
+    <a asp-action="Create" class="btn btn-primary mb-3">Ajouter un produit</a>
+
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Stock</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var produit in Model)
+            {
+                <tr>
+                    <td>@produit.Nom</td>
+                    <td>@produit.Prix €</td>
+                    <td>@produit.Stock</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@produit.Id" class="btn-sm btn-outline-secondary">Détails</a> 
+                        <a asp-action="Edit" asp-route-id="@produit.Id" class="btn-sm btn-outline-primary">Modifier</a> 
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

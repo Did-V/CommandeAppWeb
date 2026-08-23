@@ -48,4 +48,38 @@ public class ProduitsController : Controller
         }
         return View(produit);
     }
+
+    //GET /Produits/EDit/3 -> affiche le formulaire pré-rempli
+    public IActionResult Edit(int id)
+    {
+        var produit = _context.Produits.Find(id);
+        if (produit == null) return NotFound();
+        return View(produit);
+    }
+
+    //POST /Produits/EDit/3 -> traite la modification
+    [HttpPost]
+    public IActionResult Edit(int id, Produit produit)
+    {
+        if (id != produit.Id) return BadRequest();
+
+        if (ModelState.IsValid)
+        {
+            _context.Produits.Update(produit);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        return View(produit);
+    }
+
+    [HttpPost]
+    public IActionResult Delete(int id)
+    {
+        var produit = _context.Produits.Find(id);
+        if (produit == null) return NotFound();
+
+        _context.Produits.Remove(produit);
+        _context.SaveChanges();
+        return RedirectToAction("Index");
+    }
 }
