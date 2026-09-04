@@ -13,6 +13,26 @@
 
     <a asp-action="Create" class="btn btn-primary mb-3">Ajouter un produit</a>
 
+    <div class="container">
+        <div class="row">
+            @foreach (var produit in Model)
+            {
+                <div class="col-12 col-md6 col-lg-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">@produit.Nom</h5>
+                            <p class="card-text">@produit.Prix €</p>
+                            <p class="card-text">Stock : @produit.Stock</p>
+                            <a asp-action="Details" asp-route-id="@produit.Id" class="btn btn-outline-primary">Détails</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    @* <a asp-action="Create" class="btn btn-primary mb-3">Ajouter un produit</a>
+
     <table class="table table-striped table-hover">
         <thead class="table-dark">
             <tr>
@@ -36,4 +56,4 @@
                 </tr>
             }
         </tbody>
-    </table>
+    </table> *@
