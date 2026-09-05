@@ -44,6 +44,8 @@ public class ProduitsController : Controller
         {
             _context.Produits.Add(produit);
             _context.SaveChanges();
+            TempData["Message"] = "Produit créé avec succès";
+            TempData["MessageType"] = "success"; //pour choisir la couleur Bootstrap de l'alerte (success, danger, warning, info)
             return RedirectToAction("Index");
         }
         return View(produit);
@@ -67,6 +69,8 @@ public class ProduitsController : Controller
         {
             _context.Produits.Update(produit);
             _context.SaveChanges();
+            TempData["Message"] = "Produit modifié avec succès";
+            TempData["MessageType"] = "success"; //pour choisir la couleur Bootstrap de l'alerte (success, danger, warning, info)
             return RedirectToAction("Index");
         }
         return View(produit);
@@ -80,6 +84,8 @@ public class ProduitsController : Controller
 
         _context.Produits.Remove(produit);
         _context.SaveChanges();
+        TempData["Message"] = "Produit supprimé";
+        TempData["MessageType"] = "warning"; //pour choisir la couleur Bootstrap de l'alerte (success, danger, warning, info)
         return RedirectToAction("Index");
     }
 }
