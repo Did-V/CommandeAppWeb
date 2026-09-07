@@ -1,11 +1,13 @@
 using CommandeAppWeb.Data;
 using CommandeAppWeb.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CommandeAppWeb.Controllers
 {
     [ApiController]
     [Route("api/Produits")]
+    [Authorize]
     public class ProduitsApiController : ControllerBase
     {
         private readonly AppDbContext _context;

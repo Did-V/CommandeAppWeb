@@ -1,10 +1,28 @@
 using CommandeAppWeb.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>();
+
+var jwtKey = "***SECRET_SUPPRIME***!";
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = false,
+            ValidateAudience = false,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
+        };
+    });
 
 //Ajouter le service de session
 builder.Services.AddDistributedMemoryCache();   //Stockage en mémoire
@@ -26,6 +44,9 @@ app.UseRouting();
 //Activer le middleware de session (AVANT UseAuthorization)
 app.UseSession();
 
+//Vérifier qui est l'utilisateur
+app.UseAuthentication();
+//Vérifier qui a le droit d'utiliser les APIs 
 app.UseAuthorization();
 
 app.MapStaticAssets();
