@@ -8,6 +8,7 @@ public class AppDbContext : DbContext
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options){ } //Constructeur sans paramètre pour permettre la récupération des identifiants de connexion à la base
     public DbSet<Produit> Produits { get; set; }
     public DbSet<Commande> Commandes { get; set; }
+    public DbSet<Utilisateur> Utilisateurs { get; set; }
 
     // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     // {
