@@ -40,7 +40,8 @@ namespace CommandeAppWeb.Controllers
             
             var claims = new[]
             {
-                new Claim(ClaimTypes.Name, request.NomUtilisateur)
+                new Claim(ClaimTypes.Name, request.NomUtilisateur),
+                new Claim(ClaimTypes.Role, utilisateur.Role)
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));

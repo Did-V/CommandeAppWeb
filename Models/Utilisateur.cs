@@ -8,5 +8,6 @@ namespace CommandeAppWeb.Models
         public int Id { get; set; }
         public required string NomUtilisateur { get; set; }
         public required string HashMotDePasse { get; set; }
+        public required string Role { get; set; } //Role de l'utilisateur : Admin ou Utilisateur
     }
 }
