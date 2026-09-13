@@ -22,6 +22,22 @@ namespace CommandeAppWeb.Controllers
             _context = context;
             _configuration = configuration;
         }
+
+        //Code pour créer l'utilisateur admin si nécessaire
+        // [HttpPost("seed")]
+        // public IActionResult SeedAdmin()
+        // {
+        //     var lehaseurDeMdp = new PasswordHasher<Utilisateur>();
+        //     var utilisateur = new Utilisateur
+        //     {
+        //         NomUtilisateur = "admin",
+        //         HashMotDePasse = lehaseurDeMdp.HashPassword(null!, ""),
+        //         Role = "Admin"
+        //     };
+        //     _context.Utilisateurs.Add(utilisateur);
+        //     _context.SaveChanges();
+        //     return Ok("Utilisateur admin créé.");
+        // }
         
         [HttpPost("login")]
         public IActionResult Login([FromBody] LoginRequest request)

@@ -100,7 +100,21 @@ namespace CommandeAppWeb.Controllers
         }
 
         //DELETE: api/Utilisateurs/5
-        [HttpDelete()]
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var utilisateur = _context.Utilisateurs.Find(id);
+            if (utilisateur == null) return NotFound();
+
+            //Empêcher un admin de se supprimer lui-même par erreur
+            var nomConnecte = User.Identity?.Name;
+            if (utilisateur.NomUtilisateur == nomConnecte)
+                return BadRequest("Vous ne pouvez pas supprimer votre propre compte.");
+            
+            _context.Utilisateurs.Remove(utilisateur);
+            _context.SaveChanges();
+            return NoContent();
+        }
         
     }
 }

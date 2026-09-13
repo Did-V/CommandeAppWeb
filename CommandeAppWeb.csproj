@@ -4,7 +4,10 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>7f5e1aee-caf6-455e-b139-d6cbb266ccf5</UserSecretsId>
+    <!-- Ligne PC T -->
+    <!-- <UserSecretsId>7f5e1aee-caf6-455e-b139-d6cbb266ccf5</UserSecretsId> -->
+    <!-- Ligne PC P -->
+    <UserSecretsId>8f533ffb-cf87-4bd2-8779-ba199a724fc3</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
